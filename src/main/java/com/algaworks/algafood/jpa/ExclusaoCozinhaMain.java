@@ -21,7 +21,8 @@ public class ExclusaoCozinhaMain {
 		cozinha.setId(1L);
 		cozinha.setNome("Brasileira");
 
-		cozinhaRepository.remover(cozinha);
+//		cozinhaRepository.remover(cozinha);
+		cozinhaRepository.remover(1L);
 		
 		System.out.printf("%d - %s\n", cozinha.getId(), cozinha.getNome());
 	}
