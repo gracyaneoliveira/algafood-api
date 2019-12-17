@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.algaworks.algafood.domain.exception.EntidadeEmUsoException;
 import com.algaworks.algafood.domain.exception.EntidadeNaoEncontradaException;
+import com.algaworks.algafood.domain.model.Estado;
 import com.algaworks.algafood.domain.repository.EstadoRepository;
 
 @Service
@@ -14,6 +15,10 @@ public class CadastroEstadoService {
 
 	@Autowired
 	private EstadoRepository estadoRepository;
+	
+	public Estado salvar(Estado estado) {
+		return estadoRepository.salvar(estado);
+	}
 
 	public void excluir(Long estadoId) {
 		try {

@@ -52,7 +52,7 @@ public class EstadoController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Estado adicionar(@RequestBody Estado estado) {
-		return estadoRepository.salvar(estado);
+		return cadastroEstado.salvar(estado);
 	}
 
 	@PutMapping("/{estadoId}")
@@ -62,7 +62,9 @@ public class EstadoController {
 
 		if (estadoAtual != null) {
 			BeanUtils.copyProperties(estado, estadoAtual, "id");
+			
 			estadoRepository.salvar(estadoAtual);
+			
 			return ResponseEntity.ok(estadoAtual);
 		}
 
