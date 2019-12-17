@@ -64,7 +64,7 @@ public class RestauranteController {
 			if (restauranteAtual != null) {
 				BeanUtils.copyProperties(restaurante, restauranteAtual, "id");
 
-				cadastroRestaurante.atualizar(restauranteId, restauranteAtual);
+				cadastroRestaurante.atualizar(restauranteAtual);
 
 				return ResponseEntity.ok(restauranteAtual);
 			}
