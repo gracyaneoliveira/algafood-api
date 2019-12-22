@@ -33,16 +33,4 @@ public class CadastroRestauranteService {
 		return restauranteRepository.salvar(restaurante);
 	}
 
-	public Restaurante atualizar(Restaurante restaurante) {
-		
-		Long cozinhaId = restaurante.getCozinha().getId();
-		Cozinha cozinha = cozinhaRepository.buscar(cozinhaId);
-
-		if (cozinha == null) {
-			throw new EntidadeNaoEncontradaException(
-					String.format("Não existe cadastro de cozinha com o código %d", cozinhaId));
-		}
-		
-		return restauranteRepository.salvar(restaurante);
-	}
 }
