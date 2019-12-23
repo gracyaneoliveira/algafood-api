@@ -17,7 +17,7 @@ public class BuscaRestauranteMain {
 		
 		RestauranteRepository restauranteRepository = applicationContext.getBean(RestauranteRepository.class);
 		
-		Restaurante restaurante = restauranteRepository.buscar(1L);
+		Restaurante restaurante = restauranteRepository.findById(1L).get();
 
 		System.out.println(restaurante.getNome());
 	}
