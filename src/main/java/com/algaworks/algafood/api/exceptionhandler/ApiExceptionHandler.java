@@ -26,12 +26,20 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 		Problem problem = createProblemBuild(status, problemType, detail)
 				.build();
 		
-//		Problem problem = Problem.builder()
-//				.status(status.value())
-//				.type("https://algafood.com.br/entidade-nao-encontrada")
-//				.title("Entidade não encontrada")
-//				.detail(ex.getMessage())
-//				.build();
+		return handleExceptionInternal(ex, problem, new HttpHeaders(), 
+				status, request);
+	}
+	
+	@ExceptionHandler(EntidadeEmUsoException.class)
+	public ResponseEntity<?> handleEntidadeEmUsoException(
+			EntidadeEmUsoException ex, WebRequest request){
+		
+		HttpStatus status = HttpStatus.CONFLICT;
+		ProblemType problemType = ProblemType.ENTIDADE_EM_USO;
+		String detail = ex.getMessage();
+		
+		Problem problem = createProblemBuild(status, problemType, detail)
+				.build();
 		
 		return handleExceptionInternal(ex, problem, new HttpHeaders(), 
 				status, request);
@@ -41,32 +49,17 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 	public ResponseEntity<?> handleNegocioException(
 			NegocioException ex, WebRequest request){
 		
-		return handleExceptionInternal(ex, ex.getMessage(), new HttpHeaders(), 
-				HttpStatus.BAD_REQUEST, request);
+		HttpStatus status = HttpStatus.BAD_REQUEST;
+		ProblemType problemType = ProblemType.ERRO_NEGOCIO;
+		String detail = ex.getMessage();
+		
+		Problem problem = createProblemBuild(status, problemType, detail)
+				.build();
+		
+		return handleExceptionInternal(ex, problem, new HttpHeaders(), 
+				status, request);
 	}
 
-// extends ResponseEntityExceptionHandler substitui o codigo abaixo
-//	
-//	@ExceptionHandler(HttpMediaTypeNotSupportedException.class)
-//	public ResponseEntity<?> tratarHttpMediaTypeNotSupportedException(){
-//		
-//		Problema problema = Problema.builder()
-//				.dataHora(LocalDateTime.now())
-//				.mensagem("O tipo de mídia não é aceito.")
-//				.build();
-//		
-//		return ResponseEntity.status(HttpStatus.UNSUPPORTED_MEDIA_TYPE)
-//				.body(problema);
-//	}
-	
-	@ExceptionHandler(EntidadeEmUsoException.class)
-	public ResponseEntity<?> handleEntidadeEmUsoException(
-			EntidadeEmUsoException ex, WebRequest request){
-		
-		return handleExceptionInternal(ex, ex.getMessage(), new HttpHeaders(), 
-				HttpStatus.CONFLICT, request);
-	}
-	
 	@Override
 	protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers,
 			HttpStatus status, WebRequest request) {
