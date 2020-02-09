@@ -19,7 +19,6 @@ public class CustomJpaRepositoryImpl<T, ID> extends SimpleJpaRepository<T, ID>
 		super(entityInformation, entityManager);
 		
 		this.manager = entityManager;
-		
 	}
 
 	@Override
