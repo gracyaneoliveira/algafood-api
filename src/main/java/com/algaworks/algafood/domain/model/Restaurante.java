@@ -48,7 +48,7 @@ public class Restaurante {
 
 	@NotNull
 //	@DecimalMin("1")
-	@PositiveOrZero
+	@PositiveOrZero(message = "{TaxaFrete.invalida}")
 	@Column(name = "taxa_frete", nullable = false)
 	private BigDecimal taxaFrete;
 
