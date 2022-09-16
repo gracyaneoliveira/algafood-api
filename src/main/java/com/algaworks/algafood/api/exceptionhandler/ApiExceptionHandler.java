@@ -1,15 +1,13 @@
 package com.algaworks.algafood.api.exceptionhandler;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.context.MessageSource;
-import org.springframework.context.i18n.LocaleContext;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -296,14 +294,14 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 		
 		if(body == null) {
 			body = Problem.builder()
-					.timestamp(LocalDateTime.now())
+					.timestamp(OffsetDateTime.now())
 					.title(status.getReasonPhrase())
 					.status(status.value())
 					.userMessage(MSG_ERRO_GENERICA_USUARIO_FINAL)
 					.build();
 		} else if(body instanceof String){
 			body = Problem.builder()
-					.timestamp(LocalDateTime.now())
+					.timestamp(OffsetDateTime.now())
 					.title((String) body)
 					.status(status.value())
 					.userMessage(MSG_ERRO_GENERICA_USUARIO_FINAL)
@@ -322,7 +320,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 				.title(problemType.getTitle())
 				.userMessage(MSG_ERRO_GENERICA_USUARIO_FINAL)
 				.detail(detail)
-				.timestamp(LocalDateTime.now());
+				.timestamp(OffsetDateTime.now());
 	}
 	
 	private String joinPath(List<Reference> references) {
