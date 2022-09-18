@@ -9,6 +9,8 @@ import com.algaworks.algafood.api.model.CozinhaModel;
 import com.algaworks.algafood.api.model.RestauranteModel;
 import com.algaworks.algafood.domain.model.Restaurante;
 
+//https://app.algaworks.com/forum/topicos/81328/alternativa-de-solucao-de-exercicio
+
 @Component
 public class RestauranteModelAssembler {
 
