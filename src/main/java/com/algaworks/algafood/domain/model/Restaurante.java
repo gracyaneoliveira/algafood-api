@@ -36,21 +36,14 @@ public class Restaurante {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-//	@NotBlank
 	@Column(nullable = false)
 	private String nome;
 
-//	@DecimalMin("1")
-//	@TaxaFrete
-//	@Multiplo(numero = 5)
-//	@PositiveOrZero //(message = "{TaxaFrete.invalida}")
-//	@NotNull
 	@Column(name = "taxa_frete", nullable = false)
 	private BigDecimal taxaFrete;
+	
+	private Boolean ativo = Boolean.TRUE;
 
-//	@Valid // valida atributos de cozinha
-//	@ConvertGroup(from = Default.class, to = Groups.CozinhaId.class)
-//	@NotNull
 	@ManyToOne // (fetch = FetchType.LAZY)
 	@JoinColumn(name = "cozinha_id", nullable = false)
 	private Cozinha cozinha;
@@ -74,5 +67,13 @@ public class Restaurante {
 	
 	@OneToMany(mappedBy = "restaurante")
 	private List<Produto> produtos = new ArrayList<>();
+	
+	public void ativar() {
+		setAtivo(true);
+	}
+	
+	public void inativar() {
+		setAtivo(false);
+	}
 	
 }
