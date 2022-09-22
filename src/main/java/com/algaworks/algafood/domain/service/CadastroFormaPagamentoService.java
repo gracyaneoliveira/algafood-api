@@ -14,7 +14,7 @@ import com.algaworks.algafood.domain.repository.FormaPagamentoRepository;
 @Service
 public class CadastroFormaPagamentoService {
 
-	private static final String MESSAGE_RESTAURANTE_EM_USO = 
+	private static final String MESSAGE_FORMA_DE_PAGAMENTO_EM_USO = 
 			"Forma de pagamento de código %d não pode ser removido, pois está em uso";
 
 	@Autowired
@@ -40,7 +40,7 @@ public class CadastroFormaPagamentoService {
 			throw new FormaPagamentoNaoEncontradaException(formaPagamentoId);
 
 		} catch (DataIntegrityViolationException e) {
-			throw new EntidadeEmUsoException(String.format(MESSAGE_RESTAURANTE_EM_USO, formaPagamentoId));
+			throw new EntidadeEmUsoException(String.format(MESSAGE_FORMA_DE_PAGAMENTO_EM_USO, formaPagamentoId));
 		}
 	}
 
