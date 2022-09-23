@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import com.algaworks.algafood.domain.repository.CustomJpaRepository;
 
 public class CustomJpaRepositoryImpl<T, ID> extends SimpleJpaRepository<T, ID> 
-	implements CustomJpaRepository<T, ID>{
+	implements CustomJpaRepository<T, ID> {
 	
 	private EntityManager manager;
 	
@@ -30,6 +30,11 @@ public class CustomJpaRepositoryImpl<T, ID> extends SimpleJpaRepository<T, ID>
 		.getSingleResult();
 		
 		return Optional.ofNullable(entity);
+	}
+
+	@Override
+	public void detach(T entity) {
+		manager.detach(entity);
 	}
 
 }
