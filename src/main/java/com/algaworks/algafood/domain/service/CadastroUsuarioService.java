@@ -28,7 +28,6 @@ public class CadastroUsuarioService {
     				String.format("Já existe um usuário cadastrado com o e-mail %s", usuario.getEmail()));
     	}
     	
-    	
         return usuarioRepository.save(usuario);
     }
     
