@@ -15,8 +15,6 @@ import javax.persistence.ManyToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.algaworks.algafood.domain.Grupo;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

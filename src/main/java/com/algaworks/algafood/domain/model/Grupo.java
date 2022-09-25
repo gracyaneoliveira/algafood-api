@@ -1,4 +1,4 @@
-package com.algaworks.algafood.domain;
+package com.algaworks.algafood.domain.model;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,8 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-
-import com.algaworks.algafood.domain.model.Permissao;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
