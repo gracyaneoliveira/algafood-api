@@ -11,10 +11,10 @@ import com.github.bohnman.squiggly.Squiggly;
 import com.github.bohnman.squiggly.web.RequestSquigglyContextProvider;
 import com.github.bohnman.squiggly.web.SquigglyRequestFilter;
 
-@Configuration
+//@Configuration
 public class SquigglyConfig {
 	
-	@Bean
+	//@Bean
 	public FilterRegistrationBean<SquigglyRequestFilter> squigglyRequestFilter(ObjectMapper objectMapper) {
 		Squiggly.init(objectMapper, new RequestSquigglyContextProvider("campos", null));
 		
@@ -27,6 +27,5 @@ public class SquigglyConfig {
 		
 		return filterRegistration;
 	}
-	
 
 }
