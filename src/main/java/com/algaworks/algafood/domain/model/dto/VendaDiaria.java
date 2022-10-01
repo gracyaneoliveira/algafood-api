@@ -14,6 +14,6 @@ public class VendaDiaria {
 	
 	private Date data;
 	private Long totalVendas;
-	private BigDecimal totalFaturados;
+	private BigDecimal totalFaturado;
 
 }

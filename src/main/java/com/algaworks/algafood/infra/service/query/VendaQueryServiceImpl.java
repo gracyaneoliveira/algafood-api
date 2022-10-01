@@ -53,7 +53,7 @@ public class VendaQueryServiceImpl implements VendaQueryService {
 		var selection = builder.construct(VendaDiaria.class, 
 				functionDateDataCricao, 
 				builder.count(root.get("id")), 
-				builder.sum(root.get("valorTotal")));		
+				builder.sum(root.get("valorTotal")));
 		
 		if (filtro.getRestauranteId() != null) {
 		    predicates.add(builder.equal(root.get("restaurante"), filtro.getRestauranteId()));
