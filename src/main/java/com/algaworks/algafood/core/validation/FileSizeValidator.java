@@ -6,8 +6,6 @@ import javax.validation.ConstraintValidatorContext;
 import org.springframework.util.unit.DataSize;
 import org.springframework.web.multipart.MultipartFile;
 
-// https://app.algaworks.com/forum/topicos/83315/lidando-com-erro-500-qd-o-arquivo-passa-do-max-allowed-do-tomcat
-
 public class FileSizeValidator implements ConstraintValidator<FileSize, MultipartFile> {
 	
 	private DataSize maxSize;
