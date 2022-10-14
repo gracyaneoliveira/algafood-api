@@ -21,6 +21,7 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.validation.annotation.Validated;
 
 import com.algaworks.algafood.core.validation.ValorZeroIncluiDescricao;
 
@@ -30,6 +31,7 @@ import lombok.EqualsAndHashCode;
 @ValorZeroIncluiDescricao(valorField = "taxaFrete", descricaoField = "nome", descricaoObrigatoria="Frete Grátis")
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Validated
 @Entity
 public class Restaurante {
 
