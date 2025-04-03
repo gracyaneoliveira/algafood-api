@@ -22,7 +22,7 @@ public class ConsultaRestauranteMain {
 		List<Restaurante> todosRestaurantes = restauranteRepository.findAll();
 		
 		for (Restaurante restaurante : todosRestaurantes) {
-			System.out.printf("%s - %f - %s", restaurante.getNome(), restaurante.getTaxaFrete(), restaurante.getCozinha().getNome());
+			System.out.printf("%s - %f - %s", restaurante.getNome(), restaurante.getTaxaFrete(), restaurante.getCozinha().getNome());			
 		}
 	}
 }
